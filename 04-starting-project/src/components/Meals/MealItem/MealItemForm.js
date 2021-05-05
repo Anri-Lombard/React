@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./MealItemForm.module.css";
-import Input from "../../UI/Input/Input";
+import Input from "../../UI/Input";
 
 const MealItemForm = (props) => {
   const onAddHandler = (event) => {
@@ -8,16 +8,22 @@ const MealItemForm = (props) => {
   };
 
   return (
-    <React.Fragment>
-      <form onSubmit={onAddHandler} className={classes.form}>
-        <React.Fragment>
-          <h3>
-            <Input />
-          </h3>
-        </React.Fragment>
-        <button>{props.label}</button>
-      </form>
-    </React.Fragment>
+    <form onSubmit={onAddHandler} className={classes.form}>
+      <h3>
+        <Input
+          label="Amount"
+          input={{
+            id: "amount_" + props.id,
+            type: "1",
+            min: "1",
+            max: "5",
+            step: "1",
+            defaultValue: "1",
+          }}
+        />
+      </h3>
+      <button>{props.label}</button>
+    </form>
   );
 };
 
