@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 // CUSTOM HOOKS NEED TO START WITH "use"
-const useCounter = () => {
+const useCounter = (forwards = true) => {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCounter((prevCounter) => prevCounter + 1);
+      if (forwards) {
+        setCounter((prevCounter) => prevCounter + 1);
+      } else {
+        setCounter((prevCounter) => prevCounter - 1);
+      }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [forwards]);
 
   return counter;
 };
