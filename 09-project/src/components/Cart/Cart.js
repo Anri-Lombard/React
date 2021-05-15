@@ -32,7 +32,7 @@ const Cart = (props) => {
     setIsSubmittingState(true);
 
     const response = await fetch(
-      "https://react-http-7bd76-default-rtdb.firebaseio.com/orders.json",
+      "https://react-http-7bd76-default-rtdb.firebaseio.com/order.json",
       {
         method: "POST",
         body: JSON.stringify({
@@ -43,7 +43,6 @@ const Cart = (props) => {
     );
     setIsSubmittingState(false);
     setDidSubmit(true);
-    cartCtx.clearCart();
   };
 
   const cartItems = (
