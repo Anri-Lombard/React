@@ -9,6 +9,11 @@ import App from './App';
 // import productReducer from './store/reducers/products';
 import ProductsProvider from './context/products-context';
 
+// Can set this for all stores you need;
+import configureProductsStore from './hooks/products-store';
+
+configureProductsStore()
+
 // const rootReducer = combineReducers({
 //   shop: productReducer
 // });
